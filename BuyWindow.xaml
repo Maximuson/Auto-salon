@@ -1,0 +1,200 @@
+﻿<Window x:Class="SQLLiteExample.BuyWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SQLLiteExample"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.FontWeight="Medium"
+        TextElement.FontSize="14"
+        FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+        Title="Добавление машин в БД" Height="Auto" Width="350" WindowStyle="None" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="0.3*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <materialDesign:ColorZone
+             Grid.Row="0"
+             Grid.ColumnSpan="2"
+             Mode="PrimaryLight"
+             CornerRadius="0"
+             Padding="5"
+             Margin="0"
+             materialDesign:ShadowAssist.ShadowDepth="Depth3">
+
+            <StackPanel
+                Orientation="Horizontal">
+
+                <Button
+                    Click="ToggleButton_Checked"
+                    Height="24"
+                    Width="24"
+                    Margin="5"
+                    Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}"
+                    ToolTip="MaterialDesignFloatingActionMiniLightButton">
+                    <materialDesign:PackIcon
+                    Kind="Close"
+                    Height="20"
+                    Width="20" />
+                </Button>
+
+                <TextBlock
+                    VerticalAlignment="Center"
+                    Margin="16 0 0 0">
+                    Купить
+                </TextBlock>
+
+            </StackPanel>
+
+        </materialDesign:ColorZone>
+
+        <Image Grid.Row="1" Margin="10 10 10 10" Source="{Binding PathImage}"/>
+
+        <Grid Grid.Row="2">
+
+            <Grid.RowDefinitions>
+
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="{Binding Model}" TextAlignment="Center" FontSize="30"/>
+
+            <TextBlock Text="{Binding GlobalInfo}" Margin="10 20 10 30" TextWrapping="Wrap" TextAlignment="Center" FontSize="15" Grid.Row="1"/>
+
+            <Grid Grid.Row="2">
+
+                <Grid.ColumnDefinitions>
+
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+
+                    <RowDefinition/>
+                    <RowDefinition/>
+
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="{Binding DriveUnit}" TextAlignment="Center" FontSize="15" Grid.Column="0"/>
+
+                <TextBlock Text="{Binding TypeEngine}" TextAlignment="Center" FontSize="15" Grid.Column="1"/>
+
+                <TextBlock Text="{Binding TypeKPP}" TextAlignment="Center" FontSize="15" Grid.Column="2"/>
+
+                <Grid Grid.Row="1" Grid.ColumnSpan="3" HorizontalAlignment="Center">
+
+                    <Grid.ColumnDefinitions>
+
+                        <ColumnDefinition  Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Text="{Binding Price}" 
+                               HorizontalAlignment="Center" 
+                               VerticalAlignment="Center" 
+                               TextAlignment="Center" 
+                               FontSize="15" 
+                               Grid.Column="0" />
+
+                    <TextBlock Text="$" 
+                               Margin="5 0 0 0"
+                               HorizontalAlignment="Center" 
+                               VerticalAlignment="Center" 
+                               TextAlignment="Center" 
+                               FontSize="15" 
+                               Grid.Column="1"/>
+
+                </Grid>
+            </Grid>
+        </Grid>
+
+
+        <StackPanel Grid.Row="3">
+            <materialDesign:DrawerHost
+                MinWidth="340"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+
+                <materialDesign:DrawerHost.BottomDrawerContent>
+                    <StackPanel
+                        Margin="0 16 0 0 "
+                        HorizontalAlignment="Center"
+                        Orientation="Horizontal">
+                        <TextBox
+                            x:Name="EmailBox"
+                            Width="120"
+                            Margin="4" 
+                            materialDesign:HintAssist.Hint="ex@ml.com"/>
+
+                        <Button
+                            Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
+                            Click="sendMsgOnClick"
+                            Margin="4"
+                            VerticalAlignment="Center">
+                            <materialDesign:PackIcon
+                                Kind="Cart"
+                                Height="20"
+                                Width="20" />
+                        </Button>
+
+
+                        <Button
+                            Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}"
+                            CommandParameter="{x:Static Dock.Bottom}"
+                            Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}"
+                            ToolTip="MaterialDesignFloatingActionMiniLightButton"
+                            Margin="4"
+                            VerticalAlignment="Center">
+                            <materialDesign:PackIcon
+                                Kind="Close"
+                                Height="20"
+                                Width="20" />
+                        </Button>
+                    </StackPanel>
+                </materialDesign:DrawerHost.BottomDrawerContent>
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <Grid
+                         Grid.Row="0"
+                         VerticalAlignment="Center"
+                         HorizontalAlignment="Center">
+                        
+                        <Button
+                            Command="{x:Static materialDesign:DrawerHost.OpenDrawerCommand}"
+                            CommandParameter="{x:Static Dock.Bottom}"
+                            Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
+                            Margin="4">
+                            <materialDesign:PackIcon
+                                    Grid.Column="0"
+                                    Kind="Cart"
+                                    Height="20"
+                                    Width="20" 
+                                    HorizontalAlignment="Center"/>
+
+                        </Button>
+
+                    </Grid>
+                </Grid>
+            </materialDesign:DrawerHost>
+        </StackPanel>
+    </Grid>
+</Window>
