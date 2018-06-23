@@ -9,8 +9,11 @@
 ###
 # Скриншоты к программе:
 ## Главное меню
-<img src="Resources/MainMenu.png" width="200" height="50"/>
+<img src="Resource/MainMenu.png" width="200" height="50"/>
 ## Добавление
-<img src="Resources/MainMenu.png" width="200" height="50"/>
+<img src="Resource/Add.png" width="200" height="50"/>
 ## Изменение
-<img src="Resources/MainMenu.png" width="200" height="50"/>
+<img src="Resource/Edit.png" width="200" height="50"/>
+## Покупка
+<img src="Resource/Buy.png" width="200" height="50"/>
+<img src="Resource/Buy2.png" width="200" height="50"/>
