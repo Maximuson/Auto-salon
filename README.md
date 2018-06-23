@@ -10,10 +10,14 @@
 # Скриншоты к программе:
 ## Главное меню
 <img src="Resource/MainMenu.png"/>
-## Добавление
+## 
+Добавление
 <img src="Resource/Add.png" />
-## Изменение
+## 
+Изменение
 <img src="Resource/Edit.png" />
-## Покупка
+## 
+Покупка
+
 <img src="Resource/Buy.png" />
 <img src="Resource/Buy2.png" />
