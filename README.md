@@ -7,3 +7,10 @@
 ###
 *Используются: фреймворк Material Design WPF, SQLite, паттерн разработки MVVM.*
 ###
+# Скриншоты к программе:
+## Главное меню
+<img src="Resources/MainMenu.png" width="200" height="50"/>
+## Добавление
+<img src="Resources/MainMenu.png" width="200" height="50"/>
+## Изменение
+<img src="Resources/MainMenu.png" width="200" height="50"/>
